@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class = "language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    //Add Elements
+    const addLanguage = (lang) => {
+        const li = document.createElement('li')
+        li.innerHTML = `${lang}`
+        document.querySelector('.language').appendChild(li)
+    } //this traverses all the elements to reach the end
+    addLanguage("Python")
+    addLanguage("Java")
+    addLanguage("TypeScript")
+
+    const optimizedAddLanguage = (lang) => {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang))
+        document.querySelector('.language').appendChild(li)
+    }
+    optimizedAddLanguage("GoLang")
+
+    //Edit Elements
+    const secondLang = document.querySelector("li:nth-child(2)")
+    //secondLang.innerHTML = "Mojo"
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>Swift</li>'
+
+    //Remove Elements
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+</script>
+</html>
